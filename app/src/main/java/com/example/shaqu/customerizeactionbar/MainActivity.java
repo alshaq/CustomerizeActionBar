@@ -1,6 +1,7 @@
 package com.example.shaqu.customerizeactionbar;
 
 import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         //telling android to use the new created android
         setSupportActionBar(toolbar);
+
+        //this create the logo for the home so user can click it and go back to the home
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //linking the navigation drawer fragment to the main activity
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        //setting up the navigation drawer
+        drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
     }
 
     @Override
